@@ -1,13 +1,12 @@
 {
     "name": "tisogawa/php-l20n",
-    "description": "Experimental PHP script port of Moizlla's L20n parser and compiler",
+    "description": "PHP port of Moizlla's L20n",
+    "license": "Apache-2.0",
     "minimum-stability": "dev",
-    "authors": [
-        {
-            "name": "Tadasu Isogawa",
-            "email": "ucb.rcdtokyo@gmail.com"
-        }
-    ],
+    "require": {
+        "php": ">=5.4",
+        "ext-json": "*"
+    },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
