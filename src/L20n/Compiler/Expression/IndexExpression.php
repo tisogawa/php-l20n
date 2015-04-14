@@ -50,14 +50,16 @@ class IndexExpression implements ExpressionInterface
         $retval = null;
         try {
             $retval = Expression::_resolve($this->expression, $locals, $ctxdata);
+            $this->dirty = false;
         } catch (IndexException $e) {
+            $this->dirty = false;
             throw $e;
         } catch (CompilerException $e) {
+            $this->dirty = false;
             throw new IndexException($e->getMessage());
         } catch (\Exception $e) {
-            throw $e;
-        } finally {
             $this->dirty = false;
+            throw $e;
         }
         return [$locals, $retval];
     }

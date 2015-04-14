@@ -75,12 +75,13 @@ class ComplexString implements ExpressionInterface
                 }
                 $parts[] = $part;
             }
+            $this->dirty = false;
         } catch (CompilerException $e) {
+            $this->dirty = false;
             throw new ValueException($e->getMessage());
         } catch (\Exception $e) {
-            throw $e;
-        } finally {
             $this->dirty = false;
+            throw $e;
         }
         return [$locals, implode('', $parts)];
     }
